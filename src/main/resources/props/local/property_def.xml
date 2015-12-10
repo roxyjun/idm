@@ -11,5 +11,8 @@
 	<!--DB계정ID/PW설정-->
 	<entry key="Globals.UserName"><![CDATA[k1HIWeIR+1eooLj6nLpxeQ==]]></entry>
 	<entry key="Globals.Password"><![CDATA[lCkzV6uix3VTPxYftjCXGw==]]></entry>
+	<entry key="Globals.Password1"><![CDATA[lCkzV6uix3VTPxYftjCXGw==]]></entry>
+	<entry key="Globals.Password2"><![CDATA[lCkzV6uix3VTPxYftjCXGw==]]></entry>
+	<entry key="Globals.Password3"><![CDATA[lCkzV6uix3VTPxYftjCXGw==]]></entry>
 	
 </properties>
