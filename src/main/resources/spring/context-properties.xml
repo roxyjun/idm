@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+											http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="propertiesBean" class="com.sec.sscp.common.config.PropertyFactory">
+		<property name="locations"> 
+			<list>
+			    <!-- 로컬/개발/검증/운영 별, 권역 별 시스템 환경 설정 파일 -->
+				<value>file:#{ systemProperties['sscp.server.type'] == 'local' or systemProperties['sscp.server.type'] == null ? '/sscp/workspace/gpm/src/main' : '/sscp/gpm' }/resources/props/#{ systemProperties['sscp.server.type'] ?: 'local' }/*#{ systemProperties['sscp.server.region'] == null ? '_def' : '_' }#{ systemProperties['sscp.server.region']}.xml</value>
+                
+                <!-- Error Code and Message -->
+                <value>file:#{ systemProperties['sscp.server.type'] == 'local' or systemProperties['sscp.server.type'] == null ? '/sscp/workspace/gpm/src/main' : '/sscp/gpm' }/resources/error/error_code.xml</value>
+			</list> 
+		</property>
+	</bean>	
+	
+	<context:property-placeholder properties-ref="propertiesBean" /> 
+	
+</beans>	

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+
+	<!--DB서버타입(ORACLE,MYSQL)-datasource및sqlMap파일지정에사용됨-->
+	<entry key="Globals.DbType">mysql</entry>
+	
+	<entry key="Globals.DriverClassName">com.mysql.jdbc.Driver</entry>
+	<entry key="Globals.Url"><![CDATA[jdbc:mysql://192.168.0.240:3306/GPM?connectTimeout=10000&socketTimeout=10000]]></entry>
+	
+	<!--DB계정ID/PW설정-->
+	<entry key="Globals.UserName"><![CDATA[k1HIWeIR+1eooLj6nLpxeQ==]]></entry>
+	<entry key="Globals.Password"><![CDATA[lCkzV6uix3VTPxYftjCXGw==]]></entry>
+	
+</properties>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:cache="http://www.springframework.org/schema/cache"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+							http://www.springframework.org/schema/cache		http://www.springframework.org/schema/cache/spring-cache.xsd"
+							default-autowire="byName">
+
+    <!-- ######################################################################### -->
+	<context:annotation-config />
+	<context:component-scan base-package="com.sec.sscp">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+    <!-- ######################################################################### -->	
+	
+	<!--캐쉬 설정 시작 -->
+    <!-- <cache:annotation-driven cache-manager="cacheManager" />
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="sampleOnlyCache" />
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="sampleCopyCache" />
+			</set>
+		</property>
+	</bean> -->
+  	<!--캐쉬 설정 끝 -->
+  	
+	<!-- errorMessageSource 빈을 사용하지 않지만 빈 정의하지 않으면 common.lib에서 오류 발생함 -->
+	<bean id="errorMessageSource" class="com.sec.sscp.common.config.CommErrorMessageSource"> 
+		<!-- <property name="errorMessageSource"><value>file:/sscp/workspace/resources/error/*.xml</value></property> -->
+	</bean>
+	
+	<!-- <bean id="reloadableBeanInvoke" class="com.sec.sscp.common.config.ReloadableBeanInvoke"> 
+	</bean> -->
+    
+	<!-- 실행환경에서 빈 이름 참조(AbstractServiceImpl) -->
+	<!-- <bean id="leaveaTrace" class="com.sec.sscp.common.trace.LeaveaTrace">
+		<property name="traceHandlerServices">
+			<list>
+				<ref bean="sscp.traceHandlerService" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="sscp.traceHandlerService" class="com.sec.sscp.common.trace.manager.DefaultTraceHandleManager">
+		<property name="reqExpMatcher">
+			<ref bean="sscp.antPathMater" />
+		</property>
+		<property name="patterns">
+			<list>
+				<value>*</value>
+			</list>
+		</property>
+		<property name="handlers">
+			<list>
+				<ref bean="sscp.defaultTraceHandler" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="sscp.antPathMater" class="org.springframework.util.AntPathMatcher" />
+
+	<bean id="sscp.defaultTraceHandler" class="com.sec.sscp.common.trace.handler.DefaultTraceHandler" /> -->
+
+
+    <!-- MULTIPART RESOLVERS -->
+    <!-- regular spring resolver -->
+    <!-- <bean id="spring.RegularCommonsMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000" />
+        <property name="maxInMemorySize" value="100000000" />
+    </bean> -->
+
+    <!-- custom multi file resolver -->
+    <!-- <bean id="local.MultiCommonsMultipartResolver" class="com.sec.sscp.common.mvc.bind.CommMultipartResolver">
+        <property name="maxUploadSize" value="100000000" />
+        <property name="maxInMemorySize" value="100000000" />
+    </bean> -->
+
+    <!-- choose one from above and alias it to the name Spring expects -->
+    <!-- alias name="local.MultiCommonsMultipartResolver" alias="multipartResolver" /-->
+    <!-- <alias name="spring.RegularCommonsMultipartResolver" alias="multipartResolver" /> -->
+
+</beans>

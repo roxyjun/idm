@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- <aop:config>
+		<aop:pointcut id="sscp.serviceMethod" expression="execution(* com.sec.sscp..service.*Impl.*(..))" />
+
+		<aop:aspect ref="sscp.exceptionTransfer">
+			<aop:after-throwing throwing="exception" pointcut-ref="sscp.serviceMethod" method="transfer" />
+		</aop:aspect>
+	</aop:config> -->
+	
+	<!-- <bean id="sscp.exceptionTransfer" class="com.sec.sscp.common.aspect.ExceptionTransfer">
+		<property name="exceptionHandlerService">
+			<list>
+				<ref bean="defaultExceptionHandleManager" />
+				<ref bean="otherExceptionHandleManager" />
+			</list>
+		</property>
+	</bean> -->
+
+	<!-- <bean id="defaultExceptionHandleManager" class="com.sec.sscp.common.exception.manager.DefaultExceptionHandleManager">
+		<property name="reqExpMatcher">
+			<ref bean="sscp.antPathMater"/>
+		</property>
+		<property name="patterns">
+			<list>
+				<value>**service.*Impl.*</value>
+			</list>
+		</property>
+		<property name="handlers">
+			<list>
+				<ref bean="sscpHandler" />
+			</list>
+		</property>
+	</bean> -->
+
+	<!-- <bean id="otherExceptionHandleManager" class="com.sec.sscp.common.exception.manager.DefaultExceptionHandleManager">
+		<property name="reqExpMatcher">
+			<ref bean="sscp.antPathMater"/>
+		</property>
+		<property name="patterns">
+			<list>
+				<value>**service.*Impl.*</value>
+			</list>
+		</property>
+		<property name="handlers">
+			<list>
+				<ref bean="otherHandler" />
+			</list>
+		</property>
+	</bean> -->
+	
+	<!-- <bean id="sscpHandler" class="com.sec.sscp.common.exception.handler.CommExcepHndlr" />
+	<bean id="otherHandler" class="com.sec.sscp.common.exception.handler.CommOthersExcepHndlr" /> -->	
+</beans>

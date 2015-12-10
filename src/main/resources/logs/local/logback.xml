@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <!-- LOG_FILE_NAME: Java system properties set on the command line -->
+    <!-- LOG_HOME: Set at this line below -->
+    <!-- <property name="LOG_HOME" value="/sscp/gpm/logs" /> -->
+    <property name="LOG_HOME" value="." />
+    
+    <property name="MAIN_LOG_HOME" value="main" />
+    <property name="ACCESS_LOG_HOME" value="access" />
+    <property name="ABTEST_LOG_HOME" value="abtest" />
+    <property name="MAIN_LOG_FILE_NAME" value="main.${sscp.server.hostName}.gpm" />
+    <property name="ACCESS_LOG_FILE_NAME" value="access.${sscp.server.hostName}.gpm" />
+    <property name="ABTEST_LOG_FILE_NAME" value="abtest.${sscp.server.hostName}.gpm" />
+    <property name="ABTESTFAIL_LOG_FILE_NAME" value="fail.${sscp.server.hostName}.gpm" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-12d %-22([%thread]) %-5level [%X{sessionId}] %-50.50logger{50} - %msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+            <outputPatternAsHeader>false</outputPatternAsHeader>
+        </encoder>
+    </appender>
+
+    <appender name="MAIN"
+        class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_HOME}/${MAIN_LOG_HOME}/${MAIN_LOG_FILE_NAME}.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/${MAIN_LOG_HOME}/${MAIN_LOG_FILE_NAME}.%d{yyyyMMdd_HH}.log</FileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%-30(%d [%thread]) %-5level %-50.50logger{50} - %msg%n</pattern>
+            <immediateFlush>true</immediateFlush>
+            <outputPatternAsHeader>false</outputPatternAsHeader>
+        </encoder>
+    </appender>
+    
+    <!-- Springframework 관련 로그는 Info Level 만 남기도록 설정 -->
+    <logger name="org.springframework" level="DEBUG" additivity="true"></logger>
+
+    <!-- 개발 소스 -->
+    <logger name="com.sec.sscp" level="DEBUG" additivity="true"></logger>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
+    
+</configuration>

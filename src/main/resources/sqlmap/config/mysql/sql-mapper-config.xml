@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+    	<!-- <typeAlias  alias="CountryInfoVO" type="com.sec.sscp.gpm.gpmbiz.model.CountryInfoVO"/> -->
+    </typeAliases>
+    
+    <typeHandlers>
+			<typeHandler javaType="java.lang.String"        jdbcType="INTEGER"      handler="com.sec.sscp.common.dataaccess.typehandler.BlankIntegerTypeHandler" />
+			<typeHandler javaType="java.lang.Double"        jdbcType="FLOAT"        handler="com.sec.sscp.common.dataaccess.typehandler.FloatToDoubleTypeHandler" />
+			<typeHandler javaType="java.lang.Float"         jdbcType="FLOAT"        handler="org.apache.ibatis.type.FloatTypeHandler" />
+			<typeHandler javaType="java.lang.Double"        jdbcType="DOUBLE"       handler="org.apache.ibatis.type.DoubleTypeHandler" />
+			<typeHandler javaType="java.sql.Timestamp" 		jdbcType="TIMESTAMP"    handler="org.apache.ibatis.type.DateTypeHandler"/>
+		    <typeHandler javaType="java.sql.Time" 			jdbcType="TIMESTAMP"    handler="org.apache.ibatis.type.DateTypeHandler"/>
+		    <typeHandler javaType="java.sql.Date" 			jdbcType="TIMESTAMP"    handler="org.apache.ibatis.type.DateTypeHandler"/>
+	</typeHandlers>
+</configuration>

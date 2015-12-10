@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="serviceInfo.serviceInfo">
+
+	<!-- <resultMap id="serviceCountryMap" type="ServiceCountryVO">
+		<result property="countryCode" column="CNTR_CD" />
+		<result property="trtyCode" column="TRTY_CD" />
+		<result property="serviceYn" column="SVC_YN" />
+	</resultMap> -->
+	
+	
+	<!-- AB Test 모델ID 조회  -->
+	<!-- <select id="selectAbTestModelInfo"  parameterType="com.sec.sscp.gpm.gpmbiz.model.ModelVO" resultType="String">
+		<![CDATA[
+			SELECT /* [serviceInfo.xml].[selectAbTestModelInfo].[01] 변경일자 20141004 */
+			       MDL_ID 		/** 모델id */
+			  FROM GPM.TGPM_ABTST_APLY_MDL_L
+			  WHERE ABTST_ID=#{abtestId} 
+			  AND DUID=#{duid} 
+		]]>
+	</select> -->
+	
+	
+</mapper>
