@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Hello World Controller
- * 
+ *
  * @author andy
  * @since 2015. 7. 6
  * @version 1.0
@@ -35,6 +35,8 @@ public class HelloWorldController {
     public String helloWorld(HttpServletRequest request, HttpServletResponse response, @PathVariable("Name") String name) {
 
         String responseString = "{\"greeting\": \"Hello World " + name + "\"}";
+        logger.debug("responseString : " + responseString);
+        logger.debug("responseString : " + responseString);
         logger.debug("responseString : " + responseString);
 
         return responseString;
